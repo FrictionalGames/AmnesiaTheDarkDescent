@@ -1,0 +1,11 @@
+if [ `hostname` = "LinuxBoxen.kaos.realm" ]; then
+    ROOT32=humblebuild-i386
+    ROOT64=humblebuild-x86_64
+else
+    ROOT32=epel-6-i386
+    ROOT64=epel-6-x86_64
+fi
+parent=../../
+cmake_path=../src
+cmake_options=""
+dst_root=Amnesia

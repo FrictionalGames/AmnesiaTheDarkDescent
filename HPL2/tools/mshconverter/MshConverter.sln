@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MshConverter", "MshConverter.vcproj", "{824433CE-9979-440F-9C99-6DEEE7253EE6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{824433CE-9979-440F-9C99-6DEEE7253EE6}.Debug.ActiveCfg = Release|Win32
+		{824433CE-9979-440F-9C99-6DEEE7253EE6}.Debug.Build.0 = Release|Win32
+		{824433CE-9979-440F-9C99-6DEEE7253EE6}.Release.ActiveCfg = Release|Win32
+		{824433CE-9979-440F-9C99-6DEEE7253EE6}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

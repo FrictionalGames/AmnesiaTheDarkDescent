@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Demo|Win32">
+      <Configuration>Demo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C6E72C29-38A3-4897-AA05-E87B0323AA71}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\redist\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\_temp\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\redist\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\_temp\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'">..\..\redist\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'">..\..\_temp\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Amnesia</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>Amnesia_Debug</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'">
+    <TargetName>Amnesia_Demo</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\HPL2\core\include;..\..\..\HPL2\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;MEMORY_MANAGER_ACTIVE;USE_SDL2;USE_GAMEPAD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>HPL2_2010_Debug.lib;fltk.lib;wsock32.lib;comctl32.lib;xinput.lib;zlibwapi.lib;fbxsdk-2012.2-mdd.lib;dbghelp.lib;Wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\HPL2\lib; ..\..\..\HPL2\dependencies\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreEmbeddedIDL>false</IgnoreEmbeddedIDL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>..\..\redist/AmnesiaDebug.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\HPL2\core\include;..\..\..\HPL2\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;USE_GAMEPAD;USE_SDL2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>HPL2_2010.lib;fltk.lib;wsock32.lib;comctl32.lib;zlibwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\HPL2\lib; ..\..\..\HPL2\dependencies\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreEmbeddedIDL>false</IgnoreEmbeddedIDL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>..\..\redist/Amnesia.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\HPL2\core\include;..\..\..\HPL2\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS; LUX_DEMO_VERSION;USE_GAMEPAD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>HPL2_2010.lib;fltk.lib;wsock32.lib;comctl32.lib;zlibwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\HPL2\lib; ..\..\..\HPL2\dependencies\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreEmbeddedIDL>false</IgnoreEmbeddedIDL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>..\..\redist/AmnesiaDebug.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="LuxAchievementHandler.cpp" />
+    <ClCompile Include="LuxBase.cpp" />
+    <ClCompile Include="LuxConfigHandler.cpp" />
+    <ClCompile Include="LuxEnemy_ManPig.cpp" />
+    <ClCompile Include="LuxHelpFuncs.cpp" />
+    <ClCompile Include="LuxMainMenu_StartGame.cpp" />
+    <ClCompile Include="LuxTypes.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="LuxKeyEntry.cpp" />
+    <ClCompile Include="LuxArea.cpp" />
+    <ClCompile Include="LuxArea_Examine.cpp" />
+    <ClCompile Include="LuxArea_Flashback.cpp" />
+    <ClCompile Include="LuxArea_Insanity.cpp" />
+    <ClCompile Include="LuxArea_Ladder.cpp" />
+    <ClCompile Include="LuxArea_Liquid.cpp" />
+    <ClCompile Include="LuxArea_Rope.cpp" />
+    <ClCompile Include="LuxArea_Script.cpp" />
+    <ClCompile Include="LuxArea_Sign.cpp" />
+    <ClCompile Include="LuxArea_SlimeDamage.cpp" />
+    <ClCompile Include="LuxArea_Sticky.cpp" />
+    <ClCompile Include="LuxAreaNodes.cpp" />
+    <ClCompile Include="LuxCommentaryIcon.cpp" />
+    <ClCompile Include="LuxCritter_Bug.cpp" />
+    <ClCompile Include="LuxCritter_Spider.cpp" />
+    <ClCompile Include="LuxEnemy.cpp" />
+    <ClCompile Include="LuxEnemy_Grunt.cpp" />
+    <ClCompile Include="LuxEnemy_WaterLurker.cpp" />
+    <ClCompile Include="LuxEnemyMover.cpp" />
+    <ClCompile Include="LuxEnemyPathfinder.cpp" />
+    <ClCompile Include="LuxEntity.cpp" />
+    <ClCompile Include="LuxInteractConnections.cpp" />
+    <ClCompile Include="LuxItemType.cpp" />
+    <ClCompile Include="LuxProp.cpp" />
+    <ClCompile Include="LuxProp_Button.cpp" />
+    <ClCompile Include="LuxProp_Chest.cpp" />
+    <ClCompile Include="LuxProp_CritterBase.cpp" />
+    <ClCompile Include="LuxProp_EmotionStone.cpp" />
+    <ClCompile Include="LuxProp_Item.cpp" />
+    <ClCompile Include="LuxProp_Lamp.cpp" />
+    <ClCompile Include="LuxProp_LevelDoor.cpp" />
+    <ClCompile Include="LuxProp_Lever.cpp" />
+    <ClCompile Include="LuxProp_MoveObject.cpp" />
+    <ClCompile Include="LuxProp_MultiSlider.cpp" />
+    <ClCompile Include="LuxProp_NPC.cpp" />
+    <ClCompile Include="LuxProp_Object.cpp" />
+    <ClCompile Include="LuxProp_OilBarrel.cpp" />
+    <ClCompile Include="LuxProp_Photocell.cpp" />
+    <ClCompile Include="LuxProp_SwingDoor.cpp" />
+    <ClCompile Include="LuxProp_Wheel.cpp" />
+    <ClCompile Include="LuxStaticProp.cpp" />
+    <ClCompile Include="LuxCompletionCountHandler.cpp" />
+    <ClCompile Include="LuxCredits.cpp" />
+    <ClCompile Include="LuxDebugHandler.cpp" />
+    <ClCompile Include="LuxDemoEnd.cpp" />
+    <ClCompile Include="LuxEffectHandler.cpp" />
+    <ClCompile Include="LuxEffectRenderer.cpp" />
+    <ClCompile Include="LuxGlobalDataHandler.cpp" />
+    <ClCompile Include="LuxHintHandler.cpp" />
+    <ClCompile Include="LuxInputHandler.cpp" />
+    <ClCompile Include="LuxInsanityHandler.cpp" />
+    <ClCompile Include="LuxInventory.cpp" />
+    <ClCompile Include="LuxJournal.cpp" />
+    <ClCompile Include="LuxLoadScreenHandler.cpp" />
+    <ClCompile Include="LuxMainMenu.cpp" />
+    <ClCompile Include="LuxMainMenu_CustomStory.cpp" />
+    <ClCompile Include="LuxMainMenu_KeyConfig.cpp" />
+    <ClCompile Include="LuxMainMenu_LoadGame.cpp" />
+    <ClCompile Include="LuxMainMenu_Options.cpp" />
+    <ClCompile Include="LuxMainMenu_Profile.cpp" />
+    <ClCompile Include="LuxMap.cpp" />
+    <ClCompile Include="LuxMapHandler.cpp" />
+    <ClCompile Include="LuxMapHelper.cpp" />
+    <ClCompile Include="LuxMessageHandler.cpp" />
+    <ClCompile Include="LuxMusicHandler.cpp" />
+    <ClCompile Include="LuxPostEffects.cpp" />
+    <ClCompile Include="LuxPreMenu.cpp" />
+    <ClCompile Include="LuxProgressLogHandler.cpp" />
+    <ClCompile Include="LuxScriptHandler.cpp" />
+    <ClCompile Include="LuxSavedEngineTypes.cpp" />
+    <ClCompile Include="LuxSavedGame.cpp" />
+    <ClCompile Include="LuxSavedGameTypes.cpp" />
+    <ClCompile Include="LuxSavedMap.cpp" />
+    <ClCompile Include="LuxSaveHandler.cpp" />
+    <ClCompile Include="LuxHandObject.cpp" />
+    <ClCompile Include="LuxHandObject_LightSource.cpp" />
+    <ClCompile Include="LuxHandObject_Melee.cpp" />
+    <ClCompile Include="LuxMoveState.cpp" />
+    <ClCompile Include="LuxMoveState_ClimbLedge.cpp" />
+    <ClCompile Include="LuxMoveState_Normal.cpp" />
+    <ClCompile Include="LuxPlayer.cpp" />
+    <ClCompile Include="LuxPlayerHands.cpp" />
+    <ClCompile Include="LuxPlayerHelpers.cpp" />
+    <ClCompile Include="LuxPlayerState.cpp" />
+    <ClCompile Include="LuxPlayerState_DefaultBase.cpp" />
+    <ClCompile Include="LuxPlayerState_HandObject.cpp" />
+    <ClCompile Include="LuxPlayerState_Interact.cpp" />
+    <ClCompile Include="LuxPlayerState_InteractGrab.cpp" />
+    <ClCompile Include="LuxPlayerState_InteractLever.cpp" />
+    <ClCompile Include="LuxPlayerState_InteractPush.cpp" />
+    <ClCompile Include="LuxPlayerState_InteractRotateBase.cpp" />
+    <ClCompile Include="LuxPlayerState_InteractSlide.cpp" />
+    <ClCompile Include="LuxPlayerState_InteractSwingDoor.cpp" />
+    <ClCompile Include="LuxPlayerState_InteractWheel.cpp" />
+    <ClCompile Include="LuxPlayerState_Ladder.cpp" />
+    <ClCompile Include="LuxPlayerState_Normal.cpp" />
+    <ClCompile Include="LuxPlayerState_UseItem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LuxAchievementHandler.h" />
+    <ClInclude Include="LuxBase.h" />
+    <ClInclude Include="LuxConfigHandler.h" />
+    <ClInclude Include="LuxEnemy_ManPig.h" />
+    <ClInclude Include="LuxHelpFuncs.h" />
+    <ClInclude Include="LuxIdleBehavior_ManPig.h" />
+    <ClInclude Include="LuxMainMenu_StartGame.h" />
+    <ClInclude Include="LuxTypes.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="LuxKeyEntry.h" />
+    <ClInclude Include="LuxArea.h" />
+    <ClInclude Include="LuxArea_Examine.h" />
+    <ClInclude Include="LuxArea_Flashback.h" />
+    <ClInclude Include="LuxArea_Insanity.h" />
+    <ClInclude Include="LuxArea_Ladder.h" />
+    <ClInclude Include="LuxArea_Liquid.h" />
+    <ClInclude Include="LuxArea_Rope.h" />
+    <ClInclude Include="LuxArea_Script.h" />
+    <ClInclude Include="LuxArea_Sign.h" />
+    <ClInclude Include="LuxArea_SlimeDamage.h" />
+    <ClInclude Include="LuxArea_Sticky.h" />
+    <ClInclude Include="LuxAreaNodes.h" />
+    <ClInclude Include="LuxCommentaryIcon.h" />
+    <ClInclude Include="LuxCritter_Bug.h" />
+    <ClInclude Include="LuxCritter_Spider.h" />
+    <ClInclude Include="LuxEnemy.h" />
+    <ClInclude Include="LuxEnemy_Grunt.h" />
+    <ClInclude Include="LuxEnemy_WaterLurker.h" />
+    <ClInclude Include="LuxEnemyMover.h" />
+    <ClInclude Include="LuxEnemyPathfinder.h" />
+    <ClInclude Include="LuxEntity.h" />
+    <ClInclude Include="LuxInteractConnections.h" />
+    <ClInclude Include="LuxItemType.h" />
+    <ClInclude Include="LuxProp.h" />
+    <ClInclude Include="LuxProp_Button.h" />
+    <ClInclude Include="LuxProp_Chest.h" />
+    <ClInclude Include="LuxProp_CritterBase.h" />
+    <ClInclude Include="LuxProp_EmotionStone.h" />
+    <ClInclude Include="LuxProp_Item.h" />
+    <ClInclude Include="LuxProp_Lamp.h" />
+    <ClInclude Include="LuxProp_LevelDoor.h" />
+    <ClInclude Include="LuxProp_Lever.h" />
+    <ClInclude Include="LuxProp_MoveObject.h" />
+    <ClInclude Include="LuxProp_MultiSlider.h" />
+    <ClInclude Include="LuxProp_NPC.h" />
+    <ClInclude Include="LuxProp_Object.h" />
+    <ClInclude Include="LuxProp_OilBarrel.h" />
+    <ClInclude Include="LuxProp_Photocell.h" />
+    <ClInclude Include="LuxProp_SwingDoor.h" />
+    <ClInclude Include="LuxProp_Wheel.h" />
+    <ClInclude Include="LuxStaticProp.h" />
+    <ClInclude Include="LuxCompletionCountHandler.h" />
+    <ClInclude Include="LuxCredits.h" />
+    <ClInclude Include="LuxDebugHandler.h" />
+    <ClInclude Include="LuxDemoEnd.h" />
+    <ClInclude Include="LuxEffectHandler.h" />
+    <ClInclude Include="LuxEffectRenderer.h" />
+    <ClInclude Include="LuxGlobalDataHandler.h" />
+    <ClInclude Include="LuxHintHandler.h" />
+    <ClInclude Include="LuxInputHandler.h" />
+    <ClInclude Include="LuxInsanityHandler.h" />
+    <ClInclude Include="LuxInventory.h" />
+    <ClInclude Include="LuxJournal.h" />
+    <ClInclude Include="LuxLoadScreenHandler.h" />
+    <ClInclude Include="LuxMainMenu.h" />
+    <ClInclude Include="LuxMainMenu_CustomStory.h" />
+    <ClInclude Include="LuxMainMenu_KeyConfig.h" />
+    <ClInclude Include="LuxMainMenu_LoadGame.h" />
+    <ClInclude Include="LuxMainMenu_Options.h" />
+    <ClInclude Include="LuxMainMenu_Profile.h" />
+    <ClInclude Include="LuxMap.h" />
+    <ClInclude Include="LuxMapHandler.h" />
+    <ClInclude Include="LuxMapHelper.h" />
+    <ClInclude Include="LuxMessageHandler.h" />
+    <ClInclude Include="LuxMusicHandler.h" />
+    <ClInclude Include="LuxPostEffects.h" />
+    <ClInclude Include="LuxPreMenu.h" />
+    <ClInclude Include="LuxProgressLogHandler.h" />
+    <ClInclude Include="LuxScriptHandler.h" />
+    <ClInclude Include="LuxSavedEngineTypes.h" />
+    <ClInclude Include="LuxSavedGameTypes.h" />
+    <ClInclude Include="LuxSavedMap.h" />
+    <ClInclude Include="LuxSaveHandler.h" />
+    <ClInclude Include="LuxHandObject.h" />
+    <ClInclude Include="LuxHandObject_LightSource.h" />
+    <ClInclude Include="LuxHandObject_Melee.h" />
+    <ClInclude Include="LuxMoveState.h" />
+    <ClInclude Include="LuxMoveState_ClimbLedge.h" />
+    <ClInclude Include="LuxMoveState_Normal.h" />
+    <ClInclude Include="LuxPlayer.h" />
+    <ClInclude Include="LuxPlayerHands.h" />
+    <ClInclude Include="LuxPlayerHelpers.h" />
+    <ClInclude Include="LuxPlayerState.h" />
+    <ClInclude Include="LuxPlayerState_DefaultBase.h" />
+    <ClInclude Include="LuxPlayerState_HandObject.h" />
+    <ClInclude Include="LuxPlayerState_Interact.h" />
+    <ClInclude Include="LuxPlayerState_InteractGrab.h" />
+    <ClInclude Include="LuxPlayerState_InteractLever.h" />
+    <ClInclude Include="LuxPlayerState_InteractPush.h" />
+    <ClInclude Include="LuxPlayerState_InteractRotateBase.h" />
+    <ClInclude Include="LuxPlayerState_InteractSlide.h" />
+    <ClInclude Include="LuxPlayerState_InteractSwingDoor.h" />
+    <ClInclude Include="LuxPlayerState_InteractWheel.h" />
+    <ClInclude Include="LuxPlayerState_Ladder.h" />
+    <ClInclude Include="LuxPlayerState_Normal.h" />
+    <ClInclude Include="LuxPlayerState_UseItem.h" />
+    <ClInclude Include="LuxSavedGame.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lux.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Lux.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

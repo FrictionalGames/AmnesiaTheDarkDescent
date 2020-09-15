@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HplLangTool", "HplLangTool.csproj", "{7277E5EA-18F4-4F4D-BD8F-5F94B90FB52E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7277E5EA-18F4-4F4D-BD8F-5F94B90FB52E}.Debug.ActiveCfg = Debug|.NET
+		{7277E5EA-18F4-4F4D-BD8F-5F94B90FB52E}.Debug.Build.0 = Debug|.NET
+		{7277E5EA-18F4-4F4D-BD8F-5F94B90FB52E}.Release.ActiveCfg = Release|.NET
+		{7277E5EA-18F4-4F4D-BD8F-5F94B90FB52E}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

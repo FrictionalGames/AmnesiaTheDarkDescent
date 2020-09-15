@@ -1,0 +1,10 @@
+core
+tests
+tools
+dependencies/include
+dependencies/OALWrapper
+dependencies/sources/binreloc
+dependencies/lib/linux
+src/game
+src/launcher
+src/CMakeLists.txt

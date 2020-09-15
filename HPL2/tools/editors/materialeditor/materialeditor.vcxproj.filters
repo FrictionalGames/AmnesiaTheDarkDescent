@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{498b44e1-701e-43ad-a2d7-b554ab932ddf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Windows">
+      <UniqueIdentifier>{073feb9c-1cf0-41f2-8cef-59f1ade7713d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Windows\UtilityWindows">
+      <UniqueIdentifier>{40c907e0-2657-4d88-afbf-14bf2a617a89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MaterialEditor">
+      <UniqueIdentifier>{870e1bd3-e581-4a6c-81e0-79dca4aabe52}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\EditorAction.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorActionCompoundObject.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorActionEntity.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorActionHandler.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorActionMisc.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorActionSelection.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorAxisAlignedPlane.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorBaseClasses.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorClipPlane.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorEditMode.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorEditModeSelect.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorEditModeSelectTool.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorEditModeSelectToolRotate.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorEditModeSelectToolScale.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorEditModeSelectToolTranslate.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorGrid.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorIndex.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorInput.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorSelection.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorThumbnailBuilder.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorUserClassDefinitionManager.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorVar.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorViewport.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWorld.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EngineEntity.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EntityIcon.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EntityPicker.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EntityWrapper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EntityWrapperCompoundObject.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\StdAfx.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\SurfacePicker.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindow.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowEditModeSidebar.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowEntityEditBox.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxCompound.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxGroup.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowFactory.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowLowerToolbar.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowMaterialEditor.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowSelect.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowViewport.cpp">
+      <Filter>Common\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowEntitySearch.cpp">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowLoaderStatus.cpp">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowOptions.cpp">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowSoundBrowser.cpp">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\EditorWindowTextureBrowser.cpp">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildID_MaterialEditor_Win32.cpp">
+      <Filter>MaterialEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialEditor.cpp">
+      <Filter>MaterialEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialEditorMain.cpp">
+      <Filter>MaterialEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\DirectoryHandler.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\EditorAction.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorActionCompoundObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorActionEntity.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorActionHandler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorActionMisc.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorActionSelection.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorAxisAlignedPlane.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorBaseClasses.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorClipPlane.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorEditMode.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorEditModeSelect.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorEditModeSelectTool.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorEditModeSelectToolRotate.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorEditModeSelectToolScale.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorEditModeSelectToolTranslate.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorGrid.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorIndex.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorInput.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorSelection.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorThumbnailBuilder.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorTypes.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorUserClassDefinitionManager.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorVar.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorViewport.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWorld.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EngineEntity.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EntityIcon.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EntityPicker.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EntityWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EntityWrapperCompoundObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\StdAfx.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\SurfacePicker.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindow.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowEditModeSidebar.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowEntityEditBox.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxCompound.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxGroup.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowFactory.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowLowerToolbar.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowMaterialEditor.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowSelect.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowViewport.h">
+      <Filter>Common\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowEntitySearch.h">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowLoaderStatus.h">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowOptions.h">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowSoundBrowser.h">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\EditorWindowTextureBrowser.h">
+      <Filter>Common\Windows\UtilityWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildID_MaterialEditor.h">
+      <Filter>MaterialEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialEditor.h">
+      <Filter>MaterialEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialEditorTypes.h">
+      <Filter>MaterialEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\DirectoryHandler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="buildcounterinput.txt">
+      <Filter>MaterialEditor</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,148 @@
+/*
+ * Copyright © 2009-2020 Frictional Games
+ * 
+ * This file is part of Amnesia: The Dark Descent.
+ * 
+ * Amnesia: The Dark Descent is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version. 
+
+ * Amnesia: The Dark Descent is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Amnesia: The Dark Descent.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+#include "../ModelEditor/EdObjShapeSphere.h"
+
+#include "../Common/Editor.h"
+
+#include "../ModelEditor/EdObjShapeManipulators.h"
+
+//---------------------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////
+// TYPE SHAPE - CONSTRUCTORS
+////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+cTypeShapeSphere::cTypeShapeSphere() : iShapeSubType(_W("Sphere"))
+{
+	mbScalable = false;
+	AddVec3f(eShapeVec3f_Size, "ShapeSize", cVector3f(1,0,0), ePropStep_PreCreate, false);
+}
+
+cTypeShapeSphere::~cTypeShapeSphere()
+{
+}
+
+//---------------------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////
+// TYPE SHAPE - PUBLIC METHODS
+////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////
+// TYPE SHAPE - PROTECTED METHODS
+////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+iEdObjectData* cTypeShapeSphere::CreateTypeSpecificData()
+{
+	return hplNew(cEdObjShapeSphereData,(this));
+}
+
+void cTypeShapeSphere::SetUpManipulators()
+{
+	iEdScnObjType::SetUpManipulators();
+	AddManipulator(hplNew(cRadiusManipulator,()));
+}
+
+//---------------------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////
+// SHAPE DATA - CONSTRUCTORS
+////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+cEdObjShapeSphereData::cEdObjShapeSphereData(iEdObjectType* apType) : iEdObjShapeData(apType)
+{
+}
+
+//---------------------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////
+// SHAPE DATA - PUBLIC METHODS
+////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////
+// SHAPE DATA - PROTECTED METHODS
+////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+iEdObject* cEdObjShapeSphereData::CreateTypeSpecificObject()
+{
+	return hplNew(cEdObjShapeSphere,(this));
+}
+
+//---------------------------------------------------------------------------
+
+/////////////////////////////////////////////////////////////////////////////
+// SHAPE - CONSTRUCTORS
+/////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+cEdObjShapeSphere::cEdObjShapeSphere(iEdObjectData* apData) : iEdObjShape(apData)
+{
+}
+
+
+cEdObjShapeSphere::~cEdObjShapeSphere()
+{
+}
+
+//---------------------------------------------------------------------------
+
+/////////////////////////////////////////////////////////////////////////////
+// SHAPE - PUBLIC METHODS
+/////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+
+/////////////////////////////////////////////////////////////////////////////
+// SHAPE - PROTECTED METHODS
+/////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------
+
+cMesh* cEdObjShapeSphere::CreateShape()
+{
+	tString sMat = GetShapeMaterialFile(HasParentBody());
+
+	cMesh* pMesh = NULL;
+	cMeshCreator* pCreator = GetWorld()->GetEditor()->GetEngine()->GetGraphics()->GetMeshCreator();
+	return pCreator->CreateSphere("", mvShapeSize.x, iEdObjShape::mlMeshResolution, iEdObjShape::mlMeshResolution, sMat); 
+}
+
+//---------------------------------------------------------------------------
+

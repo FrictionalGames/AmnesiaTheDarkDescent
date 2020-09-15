@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Label</key>
+		<string>Level Editor</string>
+		<key>Executable</key>
+		<string>./LevelEditor.app</string>
+	</dict>
+	<dict>
+		<key>Label</key>
+		<string>Material Editor</string>
+		<key>Executable</key>
+		<string>./MaterialEditor.app</string>
+	</dict>
+	<dict>
+		<key>Label</key>
+		<string>Particle Editor</string>
+		<key>Executable</key>
+		<string>./ParticleEditor.app</string>
+	</dict>
+	<dict>
+		<key>Label</key>
+		<string>Model Editor</string>
+		<key>Executable</key>
+		<string>./ModelEditor.app</string>
+	</dict>
+	<dict>
+		<key>Label</key>
+		<string>Map Viewer</string>
+		<key>Executable</key>
+		<string>./MapViewer.app</string>
+	</dict>
+	<dict>
+		<key>Label</key>
+		<string>Model Viewer</string>
+		<key>Executable</key>
+		<string>./ModelViewer.app</string>
+	</dict>
+	<dict>
+		<key>Label</key>
+		<string>Open Custom Stories</string>
+		<key>Method</key>
+		<string>openCustomStories</string>
+	</dict>
+</array>
+</plist>

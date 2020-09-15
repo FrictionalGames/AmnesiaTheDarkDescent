@@ -1,0 +1,501 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0110 
+header_name {.h} 
+code_name {.cpp}
+decl {\#undef DestroyAll} {public global
+} 
+
+decl {\#undef ButtonPress} {public global
+} 
+
+decl {\#include "hpl.h"} {public global
+} 
+
+decl {\#include <vector>} {public global
+} 
+
+decl {\#include <string>} {public global
+} 
+
+decl {\#include <FL/fl_ask.H>} {public global
+} 
+
+decl {\#include "QualityChooser.h"} {public global
+} 
+
+decl {using namespace hpl;} {public global
+} 
+
+decl {extern tString gsGameLanguageFolder;} {global
+} 
+
+decl {extern tString gsDefaultGameLanguage;} {global
+} 
+
+decl {\#include "Main.h"} {global
+} 
+
+decl {\#include "LauncherHelper.h"} {} 
+
+class cUserInterface {open
+} {
+  Function {CreateWindow()} {open
+  } {
+    Fl_Window AddResolutionWindow {
+      label {Add Custom Resolution}
+      callback {cLauncherHelper::ReselectResolution(mvVModes, mpConfigFile, CBResolution);
+o->hide();} open
+      xywh {61 627 205 135} type Single modal visible
+    } {
+      Fl_Return_Button BAddCustomResolution {
+        label Add
+        callback {if (cLauncherHelper::AddCustomResolution(mvVModes, mpConfigFile, CBResolution, this, ICustomWidth->value(), ICustomHeight->value())) {
+	AddResolutionWindow->hide();
+}}
+        xywh {120 95 70 25}
+      }
+      Fl_Button {} {
+        label Cancel
+        callback {AddResolutionWindow->do_callback();}
+        xywh {15 95 80 25}
+      }
+      Fl_Value_Input ICustomWidth {
+        label {Width:}
+        xywh {75 15 100 25} minimum 640 maximum 4000 step 1 value 640
+      }
+      Fl_Value_Input ICustomHeight {
+        label {Height:}
+        xywh {75 55 100 25} minimum 480 maximum 4000 step 1 value 480
+      }
+    }
+    Fl_Window LauncherWindow {
+      label {Амнезия. Призрак прошлого} open
+      xywh {418 120 694 554} type Single box NO_BOX color 228 when 0
+      code0 {LauncherWindow->position(((float)(Fl::w()-LauncherWindow->w()))*0.5f, ((float)(Fl::h()-LauncherWindow->h()))*0.5f);} modal visible
+    } {
+      Fl_Group {} {open
+        image {../../art/launcher/launcher_bg_rus.jpg} xywh {0 0 695 555} color 7 align 16
+      } {
+        Fl_Tabs {} {open
+          xywh {60 330 585 175}
+        } {
+          Fl_Group TabGeneral {
+            label General open
+            xywh {60 355 585 150}
+          } {
+            Fl_Choice CBQPreset {
+              label {Quality:}
+              callback {int lSelectedItem = CBQPreset->value();
+cConfigFile* pPreset = mvPresets[lSelectedItem];
+
+if(pPreset==NULL) return;
+	
+cLauncherHelper::UpdateConfigFileWithPreset(mpConfigFile, pPreset);
+cLauncherHelper::SetInitialValues(mpConfigFile, this);}
+              xywh {235 405 110 20} down_box BORDER_BOX when 6
+            } {
+              MenuItem MIQPLow {
+                label Low
+                xywh {0 0 34 24}
+              }
+              MenuItem MIQPMed {
+                label Medium
+                xywh {0 0 34 24}
+              }
+              MenuItem MIQPHigh {
+                label High
+                xywh {0 0 34 24}
+              }
+              MenuItem MIQPCustom {
+                label Custom
+                xywh {0 0 34 24}
+              }
+            }
+            Fl_Button BDetectSettings {
+              label Detect
+              callback {cLauncherHelper::DetectSettings(this, mpConfigFile, mvPresets, mpQualityChooser, msCardString);}
+              xywh {380 405 135 20}
+            }
+            Fl_Box StringVideoDevice {
+              xywh {235 368 405 22} align 52
+              code0 {StringVideoDevice->label(msCardString.c_str());}
+            }
+            Fl_Box LabelVideoDevice {
+              label {Video Device:}
+              xywh {235 369 405 21} align 4
+            }
+            Fl_Choice CBLanguage {
+              label {Language:}
+              callback {int lValue = CBLanguage->value();
+const tString& sLangFile = mvLanguageFiles[lValue];
+cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Main", "StartLanguage", sLangFile);
+
+Fl::delete_widget(LauncherWindow);} open
+              xywh {235 435 110 20} down_box BORDER_BOX
+            } {}
+          }
+          Fl_Group TabGraphics {
+            label {Graphic Options} open
+            xywh {60 355 585 150} hide
+          } {
+            Fl_Group GroupBasicGfxOptions {
+              xywh {60 355 585 150}
+            } {
+              Fl_Choice CBResolution {
+                label {Resolution:}
+                callback {int lValue = (long int)CBResolution->mvalue()->user_data();
+cVideoMode& vMode = mvVModes[lValue];
+cLauncherHelper::UpdateConfigFile(this, mpConfigFile,"Screen", "Width", vMode.mvScreenSize.x);
+cLauncherHelper::UpdateConfigFile(this, mpConfigFile,"Screen", "Height", vMode.mvScreenSize.y);}
+                xywh {190 370 115 20} down_box BORDER_BOX when 1
+              } {}
+              Fl_Check_Button ChBFullScreen {
+                label {Full screen}
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Screen", "FullScreen", ChBFullScreen->value()==1);}
+                xywh {335 370 170 20} down_box DOWN_BOX when 1
+              }
+              Fl_Choice CBShadowQ {
+                label {Shadow quality:}
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "ShadowQuality", CBShadowQ->value());} open
+                xywh {220 430 85 20} down_box BORDER_BOX when 1
+              } {
+                MenuItem MISQLow {
+                  label Low
+                  xywh {10 10 34 24}
+                }
+                MenuItem MISQMed {
+                  label Medium
+                  xywh {10 10 34 24}
+                }
+                MenuItem MISQHigh {
+                  label High
+                  xywh {10 10 34 24}
+                }
+              }
+              Fl_Choice CBShadowRes {
+                label {Shadow resolution:}
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "ShadowResolution", CBShadowRes->value());}
+                xywh {490 430 90 20} down_box BORDER_BOX when 1
+              } {
+                MenuItem MISRLow {
+                  label Low
+                  xywh {20 20 34 24}
+                }
+                MenuItem MISRMed {
+                  label Medium
+                  xywh {20 20 34 24}
+                }
+                MenuItem MISRHigh {
+                  label High
+                  xywh {20 20 34 24}
+                }
+              }
+              Fl_Button BShowAdvanced {
+                label {Show Advanced}
+                callback {SetWidgetEnabled(GroupBasicGfxOptions, false);
+SetWidgetVisible(GroupBasicGfxOptions, false);
+
+SetWidgetEnabled(GroupAdvancedGfxOptions, true);
+SetWidgetVisible(GroupAdvancedGfxOptions, true);}
+                xywh {405 480 225 20}
+              }
+              Fl_Choice CBTexQ {
+                label {Texture quality:}
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "TextureQuality", (CBTexQ->size()-1-1)-CBTexQ->value());}
+                xywh {220 400 85 20} down_box BORDER_BOX
+              } {
+                MenuItem MITQLow {
+                  label Low
+                  xywh {5 5 30 20}
+                }
+                MenuItem MITQMed {
+                  label Medium
+                  xywh {5 5 30 20}
+                }
+                MenuItem MITQHigh {
+                  label High
+                  xywh {5 5 30 20}
+                }
+              }
+            }
+            Fl_Group GroupAdvancedGfxOptions {open
+              xywh {60 355 585 150} hide deactivate
+            } {
+              Fl_Choice CBAnisotropy {
+                label {Anisotropy:}
+                callback {int lValue = (long int)CBAnisotropy->mvalue()->user_data();
+cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "TextureAnisotropy", (float)lValue);}
+                xywh {450 370 120 20} down_box BORDER_BOX
+              } {
+                MenuItem MIAnisotropyOff {
+                  label Off
+                  user_data 1
+                  xywh {10 10 34 24}
+                }
+                MenuItem {} {
+                  label 2x
+                  user_data 2
+                  xywh {10 10 34 24}
+                }
+                MenuItem {} {
+                  label 4x
+                  user_data 4
+                  xywh {10 10 34 24}
+                }
+                MenuItem {} {
+                  label 8x
+                  user_data 8
+                  xywh {10 10 34 24}
+                }
+                MenuItem {} {
+                  label 16x
+                  user_data 16
+                  xywh {10 10 34 24}
+                }
+              }
+              Fl_Check_Button ChBSSAO {
+                label SSAO
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "SSAOActive", ChBSSAO->value()==1);}
+                xywh {130 395 65 20} down_box DOWN_BOX when 1
+              }
+              Fl_Choice CBSSAORes {
+                label {SSAO Resolution:}
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "SSAOResolution", CBSSAORes->value());}
+                xywh {450 395 120 20} down_box BORDER_BOX
+              } {
+                MenuItem MISSAOResMed {
+                  label Medium
+                  xywh {10 10 34 24}
+                }
+                MenuItem MISSAOResHigh {
+                  label High
+                  xywh {20 20 34 24}
+                }
+              }
+              Fl_Check_Button ChBEdgeSmooth {
+                label {Edge Smooth}
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "EdgeSmooth", ChBEdgeSmooth->value()==1);}
+                xywh {130 420 155 20} down_box DOWN_BOX
+              }
+              Fl_Choice CBTexFilter {
+                label {Texture Filter:}
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "TextureFilter", CBTexFilter->value());}
+                xywh {225 370 80 20} down_box BORDER_BOX
+              } {
+                MenuItem MITFilterNearest {
+                  label Nearest
+                  xywh {10 10 34 24}
+                }
+                MenuItem MITFilterBilinear {
+                  label Bilinear
+                  xywh {20 20 34 24}
+                }
+                MenuItem MITFilterTrilinear {
+                  label Trilinear
+                  xywh {30 30 34 24}
+                }
+              }
+              Fl_Check_Button ChBWaterReflect {
+                label {Water reflection}
+                callback {cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "WorldReflection", ChBWaterReflect->value()==1);}
+                xywh {130 445 155 20} down_box DOWN_BOX when 1
+              }
+              Fl_Choice CBParallax {
+                label {Parallax:}
+                callback {int lSelectedItem = CBParallax->value();
+
+cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "ParallaxEnabled", lSelectedItem==1);}
+                xywh {450 445 120 20} down_box BORDER_BOX
+              } {
+                MenuItem MIParallaxOff {
+                  label Off
+                  xywh {0 0 34 24}
+                }
+                MenuItem MIParallaxOn {
+                  label On
+                  xywh {0 0 34 24}
+                }
+              }
+              Fl_Button BShowBasic {
+                label {Show Basic}
+                callback {SetWidgetEnabled(GroupAdvancedGfxOptions, false);
+SetWidgetVisible(GroupAdvancedGfxOptions, false);
+
+SetWidgetEnabled(GroupBasicGfxOptions, true);
+SetWidgetVisible(GroupBasicGfxOptions, true);}
+                xywh {415 480 230 20}
+              }
+              Fl_Choice CBSSAOSamples {
+                label {SSAO Samples:}
+                callback {int lValue = (long int)CBSSAOSamples->mvalue()->user_data();
+cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Graphics", "SSAOSamples", lValue);} open selected
+                xywh {450 420 120 20} down_box BORDER_BOX
+              } {
+                MenuItem {} {
+                  label 4
+                  user_data 4
+                  xywh {0 0 30 20}
+                }
+                MenuItem {} {
+                  label 8
+                  user_data 8
+                  xywh {0 0 30 20}
+                }
+                MenuItem {} {
+                  label 16
+                  user_data 16
+                  xywh {0 0 30 20}
+                }
+                MenuItem {} {
+                  label 32
+                  user_data 32
+                  xywh {0 0 30 20}
+                }
+              }
+            }
+          }
+          Fl_Group TabSound {
+            label {Sound Options} open
+            xywh {60 355 585 150} hide
+          } {
+            Fl_Choice CBSoundDevices {
+              label {Device:}
+              callback {int lIndex = CBSoundDevices->value();
+int lDevID;
+if(lIndex<0 || lIndex>=(int)mvSoundDevices.size())
+{
+	lDevID = mpCurSndDev->GetID();
+}
+else
+{
+	iSoundDeviceIdentifier* pDev = mvSoundDevices[lIndex];
+	lDevID = pDev->GetID();
+}
+	
+
+cLauncherHelper::UpdateConfigFile(this, mpConfigFile, "Sound", "Device", lDevID);}
+              xywh {190 370 300 20} down_box BORDER_BOX
+            } {}
+          }
+        }
+        Fl_Button BLaunchGame {
+          label {Launch game}
+          callback {mlExitFlag = 1;
+mpConfigFile->Save();
+
+Fl::delete_widget(LauncherWindow);}
+          xywh {225 520 115 25}
+        }
+        Fl_Button BCancel {
+          label Cancel
+          callback {mlExitFlag = 0;
+
+Fl::delete_widget(LauncherWindow);}
+          xywh {350 520 115 25}
+        }
+        Fl_Button BLaunchPTest {
+          label Justine
+          callback {mlExitFlag = 2;
+mpConfigFile->Save();
+
+Fl::delete_widget(LauncherWindow);}
+          xywh {595 520 90 25} labelfont 2
+        }
+      }
+      Fl_Button BReadRemember {
+        label Remember
+        callback {cPlatform::OpenFileOnShell(_W("Remember - Short Story Collection.pdf"));}
+        xywh {5 520 95 25} labelfont 2
+      }
+    }
+    code {BShowAdvanced->value(0);
+
+cLauncherHelper::PopulateLanguages(mvLanguageFiles, gsDefaultGameLanguage, mpConfigFile, CBLanguage);
+cLauncherHelper::PopulateResolutions(mvVModes, mpConfigFile, CBResolution, this);
+
+mpCurSndDev = mpEngine->GetSound()->GetLowLevel()->GetCurrentSoundDevice();
+cLauncherHelper::PopulateSoundDevices(mvSoundDevices, mpCurSndDev, mpConfigFile, CBSoundDevices);
+cb_CBSoundDevices_i(NULL,NULL);
+
+cLauncherHelper::SetUpWidgetLabels(this, mlstLabels);
+cLauncherHelper::SetInitialValues(mpConfigFile,this);
+
+CheckEqualsPreset();} {}
+  }
+  Function {cUserInterface(int& alExitFlag, cConfigFile *apConfigFile, bool abConfigFileExists, bool abLastInitCrashed, const tString& asCardString, cQualityChooser* apChooser, const std::vector<cConfigFile*>& avPresets, cEngine* apEng) : mlExitFlag(alExitFlag)} {open
+  } {
+    code {Fl::scheme("plastic");
+
+if(abLastInitCrashed)
+	fl_message("Last settings crashed the game, falling back to defaults");
+
+mpConfigFile = apConfigFile;
+
+msCardString = asCardString;
+mpQualityChooser = apChooser;
+mvPresets = avPresets;
+
+mpEngine = apEng;
+
+mbSettingPreset = false;
+
+
+////////////////////////////////////
+// Retrieve available languages
+mvLanguageFiles = cLauncherHelper::GetAvailableLanguages(gsGameLanguageFolder);
+
+////////////////////////////////////
+// Retrieve video modes
+mvVModes = cLauncherHelper::GetAvailableVideoModes(mpConfigFile);
+
+////////////////////////////////////
+// Retrieve sound devices
+mvSoundDevices = cLauncherHelper::GetAvailableSoundDevices();
+
+/////////////////////////////////////////////
+// If no config file was present, set 'medium' settings
+if(abConfigFileExists==false)
+	cLauncherHelper::UpdateConfigFileWithPreset(mpConfigFile, mvPresets[1]);
+
+Fl_Window* pWin = CreateWindow();
+char *argv[] = { " " };
+pWin->show(0,argv);} {}
+  }
+  Function {Run()} {return_type int
+  } {
+    code {return Fl::run();} {}
+  }
+  decl {int& mlExitFlag;} {}
+  decl {cConfigFile* mpConfigFile;} {}
+  decl {tVideoModeVec mvVModes;} {}
+  Function {SetWidgetEnabled(Fl_Widget* apW, bool abX)} {} {
+    code {if(abX)
+	apW->show();
+else
+	apW->hide();} {}
+  }
+  Function {SetWidgetVisible(Fl_Widget* apW, bool abX)} {} {
+    code {if(abX)
+	apW->activate();
+else
+	apW->deactivate();} {}
+  }
+  decl {cQualityChooser* mpQualityChooser;} {}
+  decl {std::vector<cConfigFile*> mvPresets;} {}
+  decl {tString msCardString;} {}
+  decl {cEngine* mpEngine;} {}
+  Function {CheckEqualsPreset()} {open
+  } {
+    code {int lValue = cLauncherHelper::GetEqualPresetIndex(mpConfigFile, mvPresets);
+if(lValue==-1)
+	lValue = 3;
+	
+CBQPreset->value(lValue);} {}
+  }
+  decl {bool mbSettingPreset;} {}
+  decl {std::list<tString> mlstLabels;} {}
+  decl {tString msTestString;} {}
+  decl {tSoundDeviceVec mvSoundDevices;} {}
+  decl {iSoundDeviceIdentifier* mpCurSndDev;} {}
+  decl {tStringVec mvLanguageFiles;} {}
+} 
