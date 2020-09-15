@@ -1,0 +1,187 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0110 
+header_name {.h} 
+code_name {.cpp}
+decl {\#define kTranslate(sCategory, sEntry) cString::To8Char(mpEngine->GetResources()->Translate(sCategory, sEntry)).c_str()} {global
+} 
+
+decl {\#include "hpl.h"} {public global
+} 
+
+decl {\#include <iostream>} {public
+} 
+
+decl {\#include <string>} {public
+} 
+
+decl {\#include <ctype.h>} {public
+} 
+
+decl {\#include <FL/Fl_Input.H>} {public
+} 
+
+class Fl_Input_Key {open : {public Fl_Input}
+} {
+  Function {Fl_Input_Key(int X, int Y, int W, int H, const char *l = 0): Fl_Input(X,Y,W,H,l)} {} {}
+  Function {handle(int event)} {open return_type int
+  } {
+    code {switch (event) {
+  case FL_KEYBOARD:
+    if (Fl::event_key() == FL_Tab) {
+      return Fl_Input::handle(event);
+    } else {
+      return handle_key();
+    }
+  case FL_PASTE:
+    return handle_paste();
+  default:
+    return Fl_Input::handle(event);
+  }} {}
+  }
+  Function {handle_key()} {open private return_type int
+  } {
+    code {char ascii = Fl::event_text()[0];
+  char sep[2] = { '-','0'};
+  int del;
+  if (Fl::compose(del)) {
+    Fl::compose_reset();
+    int len = size();
+    int pos = position();
+    int epos = mark();
+    if (pos > epos) {
+      pos = epos;
+      epos = position();
+    }
+    //std::cout << "pos:" << pos << ":"<<epos<<"\\n";
+    if (((len -(epos -pos)) < 16/*19*/ && pos < 17/*20*/)
+        && verifychar(ascii)) {
+      //std::cout << "Inserting "<<ascii<<" @ "<<pos<<" Len " << len << "\\n";
+      ascii = toupper(ascii);
+      /*if (pos == 4 || pos == 9 || pos == 14) {
+        sep[1] = ascii;
+        if ((epos-pos)<2) {
+          epos = pos + 2;
+        }
+        replace(pos, epos, sep, 2);
+      } else {
+        replace(pos, epos, &ascii, 1);
+      }*/
+      replace(pos, epos, &ascii, 1);
+    } else {
+      return 1;
+    }
+  } else {
+    return Fl_Input::handle(FL_KEYBOARD);
+  }
+  return 1;} {}
+  }
+  Function {handle_paste()} {open private return_type int
+  } {
+    code {const char *t = Fl::event_text();
+  const char *e = t+Fl::event_length();
+  if (!t || e <= t) return 1;
+  std::string newtext;
+  while (newtext.length() < 17/*20*/ && t < e) {
+    if (verifychar(*t)) {
+      newtext.append(1,toupper(*t));
+      /*int len = newtext.length();
+      if (len == 4 || len == 9 || len == 14) {
+        newtext.append("-");
+      }*/
+    }
+    t++;
+  }
+
+  return replace(0,size(),newtext.c_str(),newtext.length());} {}
+  }
+  Function {verifychar(char key)} {open private return_type bool
+  } {
+    code {key = toupper(key);
+  //std::cout << "Checking "<<key<<"\\n";
+  return ((key >= '1' && key <= '9')
+	|| (key >= 'A' && key <= 'N')
+	|| (key >= 'P' && key <= 'W')
+	|| key == 'Z');} {}
+  }
+} 
+
+class InstallKeyEntry {open
+} {
+  decl {std::string &dest;} {}
+  decl {int &exitflag} {}
+  Function {InstallKeyEntry(std::string &key, int &exitpressed): dest(key), exitflag(exitpressed)} {open
+  } {
+    code {Fl::scheme("plastic");} {}
+    Fl_Window keyentrydialog {
+      label {Amnesia - The Dark Descent} open selected
+      xywh {398 701 450 100} type Single modal size_range {450 100 450 100} visible
+    } {
+      Fl_Box {} {
+        label {Enter Serial Number Below}
+        xywh {10 5 425 25}
+      }
+      Fl_Input keyentry {
+        label {Enter Serial Number Below}
+        xywh {10 30 430 25} labeltype NO_LABEL align 0 when 1
+        class Fl_Input_Key
+      }
+      Fl_Button {} {
+        label Exit
+        callback {{
+    //std::cout << "Exit pressed\\n";
+    exitflag = 1;
+    Fl::delete_widget(keyentrydialog);
+  }}
+        xywh {20 65 120 25}
+      }
+      Fl_Return_Button {} {
+        label {Validate Serial}
+        callback {{
+    //std::cout << "Setting Key";
+    dest.assign(keyentry->value());
+    exitflag = 0;
+    Fl::delete_widget(keyentrydialog);
+  }}
+        xywh {285 65 140 25}
+      }
+    }
+    code {keyentry->value(dest.c_str());
+  exitflag = 0;} {}
+  }
+  Function {show(int argc, char*argv[])} {open
+  } {
+    code {int x,y,w,h;
+  Fl::screen_xywh(x,y,w,h);
+  keyentrydialog->position((w-keyentrydialog->w())/2,(h-keyentrydialog->h())/2);
+  keyentrydialog->show(argc,argv);} {}
+  }
+} 
+
+Function {Ask_Serial(std::string &serial)} {open return_type int
+} {
+  code {int exitflag;
+  char *argv[1] = {"./dummyprogram"};
+  InstallKeyEntry *win = new InstallKeyEntry(serial,exitflag);
+
+  win->show(0, argv);
+
+  int ret = Fl::run();
+  if (ret) {
+    std::cout << "Error Creating Serial Dialog" << "\\n";
+  } else {
+    //std::cout << "serial:" << serial << "\\n";
+    ret = exitflag;
+  }
+  return ret;} {}
+} 
+
+declblock {\#if TEST} {open public after {\#endif}
+} {
+  Function {main(int argc, char *argv[])} {open return_type int
+  } {
+    code {std::string serial = "0000000000000000";
+  Ask_Serial(serial);
+  std::cout << "Serial Set to " << serial << "\\n";
+  return 0;} {}
+  }
+} 

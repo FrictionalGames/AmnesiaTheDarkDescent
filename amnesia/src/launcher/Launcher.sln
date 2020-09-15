@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Launcher", "Launcher.vcxproj", "{C6E72C29-38A3-4897-AA05-E87B0323AA71}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LauncherRussian", "LauncherRus.vcxproj", "{685DB969-93A5-4C52-8C2F-480E14639562}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LauncherCzech", "LauncherCz.vcxproj", "{DF092994-E993-40F3-8D77-2A7656078E1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6E72C29-38A3-4897-AA05-E87B0323AA71}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C6E72C29-38A3-4897-AA05-E87B0323AA71}.Debug|Win32.Build.0 = Debug|Win32
+		{C6E72C29-38A3-4897-AA05-E87B0323AA71}.Release|Win32.ActiveCfg = Release|Win32
+		{C6E72C29-38A3-4897-AA05-E87B0323AA71}.Release|Win32.Build.0 = Release|Win32
+		{685DB969-93A5-4C52-8C2F-480E14639562}.Debug|Win32.ActiveCfg = Debug|Win32
+		{685DB969-93A5-4C52-8C2F-480E14639562}.Release|Win32.ActiveCfg = Release|Win32
+		{DF092994-E993-40F3-8D77-2A7656078E1C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DF092994-E993-40F3-8D77-2A7656078E1C}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

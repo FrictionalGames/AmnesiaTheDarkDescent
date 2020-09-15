@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{847113B7-FF3A-43DF-A726-221E2F4AC83C}</ProjectGuid>
+    <RootNamespace>modeleditor</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\_temp\modeleditor\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\_temp\modeleditor\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreBuildEventUseInBuild>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)modeleditor.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)modeleditor.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;MEMORY_MANAGER_ACTIVE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>HPL2_2010.lib;fltk.lib;wsock32.lib;comctl32.lib;xinput.lib;fbxsdk-2012.2-md.lib;zlibwapi.lib;Wininet.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../../../redist/ModelEditor.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\lib; ..\..\..\dependencies\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>cl $(ProjectDir)BuildID_ModelEditor_Win32.cpp /O2 /I "..\..\..\core\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /FD /EHsc /MD /GS /YX"stdafx.h" /Fp"..\..\..\_temp\modeleditor\Release/ModelEditor.pch" /Fo"..\..\..\_temp\modeleditor\Release/" /Fd"..\..\..\_temp\modeleditor\Release/vc70.pdb" /W3 /nologo /c /Wp64 /Zi /TP</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\BoxCreator.cpp" />
+    <ClCompile Include="..\common\DirectoryHandler.cpp" />
+    <ClCompile Include="..\common\EditorAxisAlignedPlane.cpp" />
+    <ClCompile Include="..\common\EditorBaseClasses.cpp" />
+    <ClCompile Include="..\common\EditorClipPlane.cpp" />
+    <ClCompile Include="..\common\EditorGrid.cpp" />
+    <ClCompile Include="..\common\EditorHelper.cpp" />
+    <ClCompile Include="..\common\EditorIndex.cpp" />
+    <ClCompile Include="..\common\EditorInput.cpp" />
+    <ClCompile Include="..\common\EditorSelection.cpp" />
+    <ClCompile Include="..\common\EditorThumbnailBuilder.cpp" />
+    <ClCompile Include="..\common\EditorUserClassDefinitionManager.cpp" />
+    <ClCompile Include="..\common\EditorVar.cpp" />
+    <ClCompile Include="..\common\EditorViewport.cpp" />
+    <ClCompile Include="..\common\EditorWorld.cpp" />
+    <ClCompile Include="..\common\EntityPicker.cpp" />
+    <ClCompile Include="..\common\SphereCreator.cpp" />
+    <ClCompile Include="..\common\StdAfx.cpp" />
+    <ClCompile Include="..\common\SurfacePicker.cpp" />
+    <ClCompile Include="..\common\EditorAction.cpp" />
+    <ClCompile Include="..\common\EditorActionCompoundObject.cpp" />
+    <ClCompile Include="..\common\EditorActionEntity.cpp" />
+    <ClCompile Include="..\common\EditorActionHandler.cpp" />
+    <ClCompile Include="..\common\EditorActionMisc.cpp" />
+    <ClCompile Include="..\common\EditorActionsBodies.cpp" />
+    <ClCompile Include="..\common\EditorActionSelection.cpp" />
+    <ClCompile Include="..\common\EditorActionsSubMesh.cpp" />
+    <ClCompile Include="..\common\EditorEditMode.cpp" />
+    <ClCompile Include="..\common\EditorEditModeBillboards.cpp" />
+    <ClCompile Include="..\common\EditorEditModeBodies.cpp" />
+    <ClCompile Include="..\common\EditorEditModeJoints.cpp" />
+    <ClCompile Include="..\common\EditorEditModeLights.cpp" />
+    <ClCompile Include="..\common\EditorEditModeParticleSystems.cpp" />
+    <ClCompile Include="..\common\EditorEditModeSelect.cpp" />
+    <ClCompile Include="..\common\EditorEditModeSelectTool.cpp" />
+    <ClCompile Include="..\common\EditorEditModeSelectToolRotate.cpp" />
+    <ClCompile Include="..\common\EditorEditModeSelectToolScale.cpp" />
+    <ClCompile Include="..\common\EditorEditModeSelectToolTranslate.cpp" />
+    <ClCompile Include="..\common\EditorEditModeSounds.cpp" />
+    <ClCompile Include="..\common\EditorWindow.cpp" />
+    <ClCompile Include="..\common\EditorWindowFactory.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBox.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxBillboard.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxBody.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxBodyShape.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxBone.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxCompound.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxGroup.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxGroupShapes.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxJoint.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxLight.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxParticleSystem.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxSound.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntityEditBoxSubMesh.cpp" />
+    <ClCompile Include="..\common\EditorWindowEditModeSidebar.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntitySearch.cpp" />
+    <ClCompile Include="..\common\EditorWindowLoaderStatus.cpp" />
+    <ClCompile Include="..\common\EditorWindowLowerToolbar.cpp" />
+    <ClCompile Include="..\common\EditorWindowMaterialEditor.cpp" />
+    <ClCompile Include="..\common\EditorWindowOptions.cpp" />
+    <ClCompile Include="..\common\EditorWindowSoundBrowser.cpp" />
+    <ClCompile Include="..\common\EditorWindowTextureBrowser.cpp" />
+    <ClCompile Include="..\common\EditorWindowViewport.cpp" />
+    <ClCompile Include="..\common\EditorWindowBillboards.cpp" />
+    <ClCompile Include="..\common\EditorWindowBodies.cpp" />
+    <ClCompile Include="..\common\EditorWindowEntities.cpp" />
+    <ClCompile Include="..\common\EditorWindowJoints.cpp" />
+    <ClCompile Include="..\common\EditorWindowLights.cpp" />
+    <ClCompile Include="..\common\EditorWindowObjectBrowser.cpp" />
+    <ClCompile Include="..\common\EditorWindowParticleSystems.cpp" />
+    <ClCompile Include="..\common\EditorWindowSelect.cpp" />
+    <ClCompile Include="..\common\EditorWindowSounds.cpp" />
+    <ClCompile Include="..\common\EngineEntity.cpp" />
+    <ClCompile Include="..\common\EntityIcon.cpp" />
+    <ClCompile Include="..\common\EntityWrapper.cpp" />
+    <ClCompile Include="..\common\EntityWrapperBillboard.cpp" />
+    <ClCompile Include="..\common\EntityWrapperBody.cpp" />
+    <ClCompile Include="..\common\EntityWrapperBodyShape.cpp" />
+    <ClCompile Include="..\common\EntityWrapperBone.cpp" />
+    <ClCompile Include="..\common\EntityWrapperCompoundObject.cpp" />
+    <ClCompile Include="..\common\EntityWrapperJoint.cpp" />
+    <ClCompile Include="..\common\EntityWrapperJointBall.cpp" />
+    <ClCompile Include="..\common\EntityWrapperJointHinge.cpp" />
+    <ClCompile Include="..\common\EntityWrapperJointScrew.cpp" />
+    <ClCompile Include="..\common\EntityWrapperJointSlider.cpp" />
+    <ClCompile Include="..\common\EntityWrapperLight.cpp" />
+    <ClCompile Include="..\common\EntityWrapperLightBox.cpp" />
+    <ClCompile Include="..\common\EntityWrapperLightPoint.cpp" />
+    <ClCompile Include="..\common\EntityWrapperLightSpot.cpp" />
+    <ClCompile Include="..\common\EntityWrapperParticleSystem.cpp" />
+    <ClCompile Include="..\common\EntityWrapperSound.cpp" />
+    <ClCompile Include="..\common\EntityWrapperSubMesh.cpp" />
+    <ClCompile Include="BuildID_ModelEditor_Win32.cpp" />
+    <ClCompile Include="ModelEditor.cpp" />
+    <ClCompile Include="ModelEditorActions.cpp" />
+    <ClCompile Include="ModelEditorLowerToolbar.cpp" />
+    <ClCompile Include="ModelEditorMain.cpp" />
+    <ClCompile Include="ModelEditorWindowAnimations.cpp" />
+    <ClCompile Include="ModelEditorWindowOutline.cpp" />
+    <ClCompile Include="ModelEditorWindowPhysicsTest.cpp" />
+    <ClCompile Include="ModelEditorWindowUserSettings.cpp" />
+    <ClCompile Include="ModelEditorWorld.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\BoxCreator.h" />
+    <ClInclude Include="..\common\DirectoryHandler.h" />
+    <ClInclude Include="..\common\EditorAxisAlignedPlane.h" />
+    <ClInclude Include="..\common\EditorBaseClasses.h" />
+    <ClInclude Include="..\common\EditorClipPlane.h" />
+    <ClInclude Include="..\common\EditorGrid.h" />
+    <ClInclude Include="..\common\EditorHelper.h" />
+    <ClInclude Include="..\common\EditorIndex.h" />
+    <ClInclude Include="..\common\EditorInput.h" />
+    <ClInclude Include="..\common\EditorSelection.h" />
+    <ClInclude Include="..\common\EditorThumbnailBuilder.h" />
+    <ClInclude Include="..\common\EditorTypes.h" />
+    <ClInclude Include="..\common\EditorUserClassDefinitionManager.h" />
+    <ClInclude Include="..\common\EditorVar.h" />
+    <ClInclude Include="..\common\EditorViewport.h" />
+    <ClInclude Include="..\common\EditorWorld.h" />
+    <ClInclude Include="..\common\EntityPicker.h" />
+    <ClInclude Include="..\common\ShapeCreator.h" />
+    <ClInclude Include="..\common\SphereCreator.h" />
+    <ClInclude Include="..\common\StdAfx.h" />
+    <ClInclude Include="..\common\SurfacePicker.h" />
+    <ClInclude Include="..\common\EditorAction.h" />
+    <ClInclude Include="..\common\EditorActionCompoundObject.h" />
+    <ClInclude Include="..\common\EditorActionEntity.h" />
+    <ClInclude Include="..\common\EditorActionHandler.h" />
+    <ClInclude Include="..\common\EditorActionMisc.h" />
+    <ClInclude Include="..\common\EditorActionsBodies.h" />
+    <ClInclude Include="..\common\EditorActionSelection.h" />
+    <ClInclude Include="..\common\EditorActionsSubMesh.h" />
+    <ClInclude Include="..\common\EditorEditMode.h" />
+    <ClInclude Include="..\common\EditorEditModeBillboards.h" />
+    <ClInclude Include="..\common\EditorEditModeBodies.h" />
+    <ClInclude Include="..\common\EditorEditModeJoints.h" />
+    <ClInclude Include="..\common\EditorEditModeLights.h" />
+    <ClInclude Include="..\common\EditorEditModeParticleSystems.h" />
+    <ClInclude Include="..\common\EditorEditModeSelect.h" />
+    <ClInclude Include="..\common\EditorEditModeSelectTool.h" />
+    <ClInclude Include="..\common\EditorEditModeSelectToolRotate.h" />
+    <ClInclude Include="..\common\EditorEditModeSelectToolScale.h" />
+    <ClInclude Include="..\common\EditorEditModeSelectToolTranslate.h" />
+    <ClInclude Include="..\common\EditorEditModeSounds.h" />
+    <ClInclude Include="..\common\EditorWindow.h" />
+    <ClInclude Include="..\common\EditorWindowFactory.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBox.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxBillboard.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxBody.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxBodyShape.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxBone.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxCompound.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxGroup.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxGroupShapes.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxJoint.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxLight.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxParticleSystem.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxSound.h" />
+    <ClInclude Include="..\common\EditorWindowEntityEditBoxSubMesh.h" />
+    <ClInclude Include="..\common\EditorWindowEditModeSidebar.h" />
+    <ClInclude Include="..\common\EditorWindowEntitySearch.h" />
+    <ClInclude Include="..\common\EditorWindowLoaderStatus.h" />
+    <ClInclude Include="..\common\EditorWindowLowerToolbar.h" />
+    <ClInclude Include="..\common\EditorWindowMaterialEditor.h" />
+    <ClInclude Include="..\common\EditorWindowOptions.h" />
+    <ClInclude Include="..\common\EditorWindowSoundBrowser.h" />
+    <ClInclude Include="..\common\EditorWindowTextureBrowser.h" />
+    <ClInclude Include="..\common\EditorWindowViewport.h" />
+    <ClInclude Include="..\common\EditorWindowBillboards.h" />
+    <ClInclude Include="..\common\EditorWindowBodies.h" />
+    <ClInclude Include="..\common\EditorWindowEntities.h" />
+    <ClInclude Include="..\common\EditorWindowJoints.h" />
+    <ClInclude Include="..\common\EditorWindowLights.h" />
+    <ClInclude Include="..\common\EditorWindowObjectBrowser.h" />
+    <ClInclude Include="..\common\EditorWindowParticleSystems.h" />
+    <ClInclude Include="..\common\EditorWindowSelect.h" />
+    <ClInclude Include="..\common\EditorWindowSounds.h" />
+    <ClInclude Include="..\common\EngineEntity.h" />
+    <ClInclude Include="..\common\EntityIcon.h" />
+    <ClInclude Include="..\common\EntityWrapper.h" />
+    <ClInclude Include="..\common\EntityWrapperBillboard.h" />
+    <ClInclude Include="..\common\EntityWrapperBody.h" />
+    <ClInclude Include="..\common\EntityWrapperBodyShape.h" />
+    <ClInclude Include="..\common\EntityWrapperBone.h" />
+    <ClInclude Include="..\common\EntityWrapperCompoundObject.h" />
+    <ClInclude Include="..\common\EntityWrapperJoint.h" />
+    <ClInclude Include="..\common\EntityWrapperJointBall.h" />
+    <ClInclude Include="..\common\EntityWrapperJointHinge.h" />
+    <ClInclude Include="..\common\EntityWrapperJointScrew.h" />
+    <ClInclude Include="..\common\EntityWrapperJointSlider.h" />
+    <ClInclude Include="..\common\EntityWrapperLight.h" />
+    <ClInclude Include="..\common\EntityWrapperLightBox.h" />
+    <ClInclude Include="..\common\EntityWrapperLightPoint.h" />
+    <ClInclude Include="..\common\EntityWrapperLightSpot.h" />
+    <ClInclude Include="..\common\EntityWrapperParticleSystem.h" />
+    <ClInclude Include="..\common\EntityWrapperSound.h" />
+    <ClInclude Include="..\common\EntityWrapperSubMesh.h" />
+    <ClInclude Include="BuildID_ModelEditor.h" />
+    <ClInclude Include="ModelEditor.h" />
+    <ClInclude Include="ModelEditorActions.h" />
+    <ClInclude Include="ModelEditorLowerToolbar.h" />
+    <ClInclude Include="ModelEditorTypes.h" />
+    <ClInclude Include="ModelEditorWindowAnimations.h" />
+    <ClInclude Include="ModelEditorWindowOutline.h" />
+    <ClInclude Include="ModelEditorWindowPhysicsTest.h" />
+    <ClInclude Include="ModelEditorWindowUserSettings.h" />
+    <ClInclude Include="ModelEditorWorld.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="buildcounterinput.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

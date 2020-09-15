@@ -1,0 +1,3 @@
+AppName ModelEditor
+OutHeaderPath .
+OutSourcePath .
