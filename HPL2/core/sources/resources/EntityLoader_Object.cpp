@@ -736,7 +736,7 @@ namespace hpl {
 			{
 				iEntity3D *pEntity = *it;
 
-				if(pEntity->GetEntityType() == "SubMesh" && mpMesh->GetSkeleton() == false && mpMesh->GetAnimationNum() > 0)
+				if(pEntity->GetEntityType() == "SubMesh" && mpMesh->GetSkeleton() == NULL && mpMesh->GetAnimationNum() > 0)
 				{
 					mbNodeAnimation = true;
 					continue;
@@ -933,7 +933,7 @@ namespace hpl {
 				//Attach
 				if(apEntityParent)
 				{
-					if(pEntity->GetEntityType() == "SubMesh" && mpMesh->GetSkeleton() == false && mpMesh->GetAnimationNum() > 0)
+					if(pEntity->GetEntityType() == "SubMesh" && mpMesh->GetSkeleton() == NULL && mpMesh->GetAnimationNum() > 0)
 					{
 						mbNodeAnimation = true;
 						continue;
