@@ -150,10 +150,10 @@ namespace hpl {
 		cBone* LoadSkeletonData(cBone* apBone,KFbxNode *apNode, int alDepth);
 
 		const char* GetTabs(int alDepth);
-		const char* GetAttrName(KFbxNodeAttribute::EAttributeType alNum);
-		const char* GetSkelTypeName(KFbxSkeleton::ESkeletonType alNum);
+		const char* GetAttrName(KFbxNodeAttribute::EType alNum);
+		const char* GetSkelTypeName(KFbxSkeleton::EType alNum);
 		const char* GetRotOrderName(ERotationOrder alNum);
-		const char* GetLinkModeName(KFbxLink::ELinkMode alNum);
+		const char* GetLinkModeName(KFbxCluster::ELinkMode alNum);
 
 		bool LoadScene(KFbxSdkManager* pSdkManager, KFbxDocument* pScene, const char* pFilename);
 
