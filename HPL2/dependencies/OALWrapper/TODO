@@ -1,0 +1,3 @@
+* Add a Visual Studio Project file for windows
+* Update WAVE loading to not use old Deprecated OpenAL APIs
+* Use system include paths for OpenAL headers instead of dependencies bundle
