@@ -344,7 +344,6 @@ FUNCTION(AddTestTarget target_name)
     )
 ENDFUNCTION()
 
-add_subdirectory(../tests tests)
 add_subdirectory(../tools tools)
 
 
