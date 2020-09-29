@@ -40,6 +40,7 @@ class iLuxInteractConnection_SaveData : public iSerializable
 {
 	kSerializableClassInit(iLuxInteractConnection_SaveData)
 public:
+    virtual ~iLuxInteractConnection_SaveData(){};
 	virtual iLuxInteractConnection* CreateConnection(cLuxMap *apMap)=0;
 	virtual void FromConnection(iLuxInteractConnection* apConnection);
 
@@ -182,6 +183,7 @@ public:
 
 private:
 	cLuxProp_MoveObject *mpMoveObject;
+    cLuxProp_MoveObject *mpMoveObject_bak;
 	bool mbPropNeedsUpdate;
 };
 

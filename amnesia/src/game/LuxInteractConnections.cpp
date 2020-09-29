@@ -339,8 +339,7 @@ iLuxInteractConnection* cLuxInteractConnection_MoveObject_SaveData::CreateConnec
 	cLuxInteractConnection_MoveObject *pConn = hplNew( cLuxInteractConnection_MoveObject,(msName, pProp, pMoveObject, mbInvert, mlStateUsed) );
 	pConn->SetInteractionOnly(mbInteractionOnly);
 	return pConn;
-	
-	return pConn;
+
 }
 
 //-----------------------------------------------------------------------
