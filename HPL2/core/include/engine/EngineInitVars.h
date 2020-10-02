@@ -79,7 +79,7 @@ namespace hpl {
 			cSoundVars() :
 				mlSoundDeviceID(-1),
 				mbUseEnvironmentalAudio(false),
-				mbUseThreading(true),
+				mbUseThreading(false),
 				mbUseVoiceManagement(true),
 				mbLowLevelLogging(false),
 				mlStreamUpdateFreq(10),
