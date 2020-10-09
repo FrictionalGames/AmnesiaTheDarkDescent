@@ -38,6 +38,7 @@
 
 #include <SDL2/SDL.h>
 
+
 using namespace hpl;
 
 static inline void EmptyNSArrayController(NSArrayController *a) {
@@ -463,11 +464,13 @@ SDL_GLContext sdlcontext = 0;
 
     sdlcontext = SDL_GL_CreateContext(sdlwin);
 
+#ifndef __APPLE__
     const GLubyte* pCardString = glGetString(GL_RENDERER);
     if (pCardString) {
         gsGLRendererString = hpl::tString((const char *)pCardString);
         [[_labels content] setValue:[NSString stringWithCString:(const char*)pCardString encoding:NSASCIIStringEncoding] forKey:@"txtVideoDevice"];
     }
+#endif
     // Delete the window AFTER the main window is shown
 
 	mpQualityChooser = new cQualityChooser("launcher/launcher_card_database.cfg");

@@ -28,8 +28,6 @@
 #include <limits>
 #include <float.h>
 
-//Note from Python Blue: had to comment out the remove functions or else the game wouldn't build. Needless to say, I can't guarantee the game will currently work with a gamepad
-
 namespace hpl {
 
 	//////////////////////////////////////////////////////////////////////////
@@ -292,14 +290,18 @@ namespace hpl {
 		{
 		case eGamepadInputType_Button:
 			{
-				//if(input.mfInputValue==0.0f)
-					//mlstButtonsReleased.remove(input);
-				//else
-					//mlstButtonsPressed.remove(input);
+#ifndef __APPLE__
+				if(input.mfInputValue==0.0f)
+					mlstButtonsReleased.remove(input);
+				else
+					mlstButtonsPressed.remove(input);
+#endif
 			}
 			break;
 		case eGamepadInputType_Axis:
-			//mlstAxisChanges.remove(input);
+#ifndef __APPLE__
+			mlstAxisChanges.remove(input);
+#endif
 			break;
 		}
 
@@ -322,7 +324,9 @@ namespace hpl {
 	{
 		cGamepadInputData button = mlstButtonsPressed.front();
 		mlstButtonsPressed.pop_front();
-		//mlstInputUpdates.remove(button);
+#ifndef __APPLE__
+		mlstInputUpdates.remove(button);
+#endif
 
 		return button;
 	}
@@ -340,7 +344,9 @@ namespace hpl {
 	{
 		cGamepadInputData button = mlstButtonsReleased.front();
 		mlstButtonsReleased.pop_front();
-		//mlstInputUpdates.remove(button);
+#ifndef __APPLE__
+		mlstInputUpdates.remove(button);
+#endif
 
 		return button;
 	}
@@ -375,8 +381,9 @@ namespace hpl {
 	{
 		cGamepadInputData axis = mlstAxisChanges.front();
 		mlstAxisChanges.pop_front();
-		//mlstInputUpdates.remove(axis);
-
+#ifndef __APPLE__
+		mlstInputUpdates.remove(axis);
+#endif
 		return axis;
 	}
 

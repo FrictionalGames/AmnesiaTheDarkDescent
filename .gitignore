@@ -348,3 +348,20 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+amnesia/.DS_Store
+amnesia/src/.DS_Store
+HPL2/.DS_Store
+HPL2/core/.DS_Store
+HPL2/core/include/.DS_Store
+HPL2/core/include/graphics/.DS_Store
+HPL2/core/include/impl/.DS_Store
+HPL2/core/sources/.DS_Store
+HPL2/core/sources/graphics/.DS_Store
+HPL2/core/sources/impl/.DS_Store
+HPL2/dependencies/.DS_Store
+HPL2/dependencies/include/.DS_Store
+HPL2/dependencies/lib/.DS_Store
+HPL2/dependencies/lib/macosx/.DS_Store
+HPL2/dependencies/lib/macosx64/.DS_Store
+HPL2/tests/.DS_Store
+.DS_Store

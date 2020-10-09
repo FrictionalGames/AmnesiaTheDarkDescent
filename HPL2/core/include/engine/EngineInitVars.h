@@ -76,10 +76,25 @@ namespace hpl {
 		class cSoundVars
 		{
 		public:
+#ifdef __APPLE__
+            cSoundVars() :
+                mlSoundDeviceID(-1),
+                mbUseEnvironmentalAudio(false),
+                mbUseThreading(false),
+                mbUseVoiceManagement(true),
+                mbLowLevelLogging(false),
+                mlStreamUpdateFreq(10),
+                mlMaxChannels(32),
+                mlMaxMonoChannelsHint(0),
+                mlMaxStereoChannelsHint(0),
+                mlStreamBufferSize(524288),
+                mlStreamBufferCount(2)
+            {}
+#else
 			cSoundVars() :
 				mlSoundDeviceID(-1),
 				mbUseEnvironmentalAudio(false),
-				mbUseThreading(false),
+				mbUseThreading(true),
 				mbUseVoiceManagement(true),
 				mbLowLevelLogging(false),
 				mlStreamUpdateFreq(10),
@@ -89,6 +104,7 @@ namespace hpl {
 				mlStreamBufferSize(524288),
 				mlStreamBufferCount(2)
 			{}
+#endif
 				
 			int	mlSoundDeviceID;
 			bool mbUseEnvironmentalAudio;
